@@ -1,4 +1,4 @@
-# macOS 10.13 High Sierra pip base packages build and test  fix
+# macOS 10.13 High Sierra pip base packages build and test
 os: osx
 language: generic
 before_install:
