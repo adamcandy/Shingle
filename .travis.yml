@@ -21,7 +21,6 @@ before_install:
   source venv/bin/activate
   # A manual check that the correct version of Python is running.
   python --version
-  python --version
 install:
   - python -m pip install -U pip
   - pip install numpy matplotlib pyproj Pydap shapely Pillow pytest
@@ -33,5 +32,5 @@ script:
   - make
   - make unittest
   # Pre-download, to best work with Travis timeout
-  #- curl http://store.pangaea.de/Publications/TimmermannR_et_al_2010/RTopo105b_50S.nc -o test/Amundsen_Sea/data/RTopo.nc
-  #- make test
+  - curl http://store.pangaea.de/Publications/TimmermannR_et_al_2010/RTopo105b_50S.nc -o test/Amundsen_Sea/data/RTopo.nc
+  - make test
