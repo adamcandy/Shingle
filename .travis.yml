@@ -1,7 +1,6 @@
 # macOS 10.13 High Sierra pip base packages build and test
 os: osx
 language: python
-python: 2.7
 compiler: gcc
 virtualenv:
   system_site_packages: true
