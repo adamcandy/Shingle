@@ -24,11 +24,11 @@ before_install:
 install:
   - python -m pip install -U pip
   - pip install numpy matplotlib pyproj Pydap shapely Pillow pytest
+  - rm -f '/usr/local/include/c++'
+  - brew link --overwrite gcc
+  - brew install gmsh
   - brew install netcdf
   - pip install ScientificPython
-  - rm -f '/usr/local/include/c++'
-  - brew install gmsh
-  - brew link --overwrite gcc
 before_script:
   - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
   - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
