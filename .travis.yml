@@ -25,8 +25,8 @@ install:
   - python -m pip install -U pip
   - pip install numpy matplotlib pyproj Pydap shapely Pillow pytest
   - rm -f '/usr/local/include/c++'
-  - brew link --overwrite gcc
   - brew install gmsh
+  - brew link --overwrite gcc
   - brew install netcdf
   - pip install ScientificPython
 before_script:
