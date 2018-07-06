@@ -3,9 +3,10 @@ matrix:
   include:
   # macOS 10.13 High Sierra pip base packages build and test abcd
   - env:
-      - NAME=macOs-HighSierra-Pip
+      - NAME=macOs-HighSierra-pip
     os: osx
-    language: generic
+    language: python
+    python: 2.7
     before_install:
       - brew update
       # Per the `pyenv homebrew recommendations <https://github.com/yyuu/pyenv/wiki#suggested-build-environment>`_.
@@ -221,7 +222,7 @@ matrix:
       - make unittest
       # Pre-download, to best work with Travis timeout
       - curl http://store.pangaea.de/Publications/TimmermannR_et_al_2010/RTopo105b_50S.nc -o test/Amundsen_Sea/data/RTopo.nc
-      - travis_wait make test
+      - make test
 
 
   # Ubuntu Precise 12.04 Travis pip base packages build and test
@@ -237,18 +238,23 @@ matrix:
       apt:
         packages:
           # Temporarily install apt Scientific
+          - python-netcdf
           - python-scientific
           - gmsh
           - curl
     virtualenv:
       system_site_packages: true
     install:
-      - pip install numpy matplotlib pyproj Pydap shapely Pillow pytest requests
+      - pip install numpy matplotlib pyproj shapely Pillow pytest
+      - pip install Pydap==3.2.1
+      - pip install requests
       #- pip install ScientificPython
     before_script:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
     script:
+      - pip freeze | grep Pydap
+      - pip freeze | grep numpy
       - make
       - make unittest
       # Pre-download, to best work with Travis timeout
