@@ -5,8 +5,6 @@ matrix:
   - env:
       - NAME=macOs-HighSierra-pip
     os: osx
-    language: python
-    python: 2.7
     before_install:
       - brew update
       # Per the `pyenv homebrew recommendations <https://github.com/yyuu/pyenv/wiki#suggested-build-environment>`_.
