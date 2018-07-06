@@ -5,6 +5,7 @@ matrix:
   - env:
       - NAME=macOs-HighSierra-pip
     os: osx
+    language: generic
     before_install:
       - brew update
       # Per the `pyenv homebrew recommendations <https://github.com/yyuu/pyenv/wiki#suggested-build-environment>`_.
@@ -125,7 +126,7 @@ matrix:
       # Temporarily update all apt packages
       - sudo apt-get update
       - sudo apt-get install -y git gcc g++ build-essential python-setuptools python-dev python-pip python-scipy python-numpy python-netcdf python-scientific python-matplotlib python-shapely python-pyproj python-pil gmsh python-pytest
-      - pip install Pydap
+      - pip install Pydap==3.2.1
     before_script:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
@@ -175,11 +176,12 @@ matrix:
       # Temporarily update all apt packages
       - sudo apt-get update
       - sudo apt-get install -y git gcc g++ build-essential python-setuptools python-dev python-pip python-scipy python-numpy python-scientific python-matplotlib python-shapely python-pyproj python-imaging gmsh python-py
-      - pip install Pydap
+      - pip install Pydap==3.2.1
     before_script:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
     script:
+      - pip freeze | grep Pydap
       - make
       - make unittest
       # Pre-download, to best work with Travis timeout

@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
         python-pytest \
         curl
 
-RUN pip install Pydap
+RUN pip install Pydap==3.2.1
 
 # Set build compiler environment 
 ENV CC=gcc

@@ -24,14 +24,16 @@ RUN apt-get update && apt-get install -y \
         python-imaging \
         gmsh \
         python-py \
-        python-dap \
         curl
+        
+        #python-dap \
 
 #RUN echo "nameserver 8.8.8.8" >> /etc/resolv.conf && \ 
 #    echo "nameserver 8.8.4.4" >> /etc/resolv.conf && \    
 #    pip install Pydap
 
 # RUN pip install Pydap
+RUN pip install Pydap==3.2.1
 
 
 RUN pip install -i https://pypi.python.org/simple/ --upgrade pip
