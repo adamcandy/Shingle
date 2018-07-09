@@ -1,7 +1,10 @@
-
 matrix:
   include:
-  # macOS 10.13 High Sierra pip base packages build and test abcd
+
+  # Build Environment #1
+  #
+  # macOS 10.13 High Sierra pip base packages build
+  #
   - env:
       - NAME=macOs-HighSierra-pip
     os: osx
@@ -49,7 +52,11 @@ matrix:
       - make test
 
 
+  # Build Environment #2
+  # Failure Pydap==3.2.1 not foundp==3.2.1 not found, setuptools_scm.version.SetuptoolsOutdatedWarning: your setuptools is too old (<12)
+  #
   # Ubuntu Trusty 14.04 Docker container build and test
+  #
   - env:
       - NAME=trusty-docker
     services:
@@ -63,7 +70,11 @@ matrix:
       - docker run -v $PWD:/run -w="/run" -a stdout -t shingle shingle -t
 
 
+  # Build Environment #3
+  # Failure Pydap==3.2.1 not foundp==3.2.1 not found, setuptools_scm.version.SetuptoolsOutdatedWarning: your setuptools is too old (<12)
+  #
   # Ubuntu Precise 12.04 Docker container build and test
+  #
   - env:
       - NAME=precise-docker
     services:
@@ -77,7 +88,11 @@ matrix:
       - docker run -v $PWD:/run -w="/run" -a stdout -t shingle shingle -t
 
 
+  # Build Environment #4
+  # Failure Pydap==3.2.1 not found
+  #
   # Ubuntu Xenial 16.04 Docker container build and test
+  #
   - env:
       - NAME=xenial-docker
     services:
@@ -91,7 +106,11 @@ matrix:
       - docker run -v $PWD:/run -w="/run" -a stdout -t shingle shingle -t
 
 
+  # Build Environment #5
+  # Failure ValueError: Type 'LinearRing' not recognized 
+  #
   # Ubuntu Trusty 14.04 Travis apt base packages build and test
+  #
   - env:
       - NAME=trusty-apt
     dist: trusty
@@ -126,7 +145,9 @@ matrix:
       # Temporarily update all apt packages
       - sudo apt-get update
       - sudo apt-get install -y git gcc g++ build-essential python-setuptools python-dev python-pip python-scipy python-numpy python-netcdf python-scientific python-matplotlib python-shapely python-pyproj python-pil gmsh python-pytest
+      - pip install -U pip setuptools
       - pip install Pydap==3.2.1
+      - pip install Shapely==1.5.9
     before_script:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
@@ -141,7 +162,12 @@ matrix:
       - make test
 
 
+  # Build Environment #6
+  # Failure from shapely.affinity import translate
+  #   ImportError: No module named affinity
+  #
   # Ubuntu Precise 12.04 Travis apt base packages build and test
+  #
   - env:
       - NAME=precise-apt
     dist: precise
@@ -176,7 +202,9 @@ matrix:
       # Temporarily update all apt packages
       - sudo apt-get update
       - sudo apt-get install -y git gcc g++ build-essential python-setuptools python-dev python-pip python-scipy python-numpy python-scientific python-matplotlib python-shapely python-pyproj python-imaging gmsh python-py
+      - pip install -U pip setuptools
       - pip install Pydap==3.2.1
+      - pip install Shapely==1.5.9
     before_script:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
@@ -189,7 +217,10 @@ matrix:
       - make test
 
 
+  # Build Environment #7
+  #
   # Ubuntu Trusty 14.04 Travis pip base packages build and test
+  #
   - env:
       - NAME=trusty-pip
     dist: trusty
@@ -225,7 +256,11 @@ matrix:
       - make test
 
 
+  # Build Environment #8
+  # Failure UK_NorthSea_region_opendap_metric node ele numbers 
+  #
   # Ubuntu Precise 12.04 Travis pip base packages build and test
+  #
   - env:
       - NAME=precise-pip
     dist: precise
