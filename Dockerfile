@@ -24,7 +24,8 @@ RUN apt-get update && apt-get install -y \
         python-pil \
         gmsh \
         python-pytest \
-        curl
+        curl \
+        wget
 
 RUN pip install -i https://pypi.python.org/simple -U pip distribute setuptools
 RUN pip install Pydap==3.2.1
