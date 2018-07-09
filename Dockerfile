@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
         python-pytest \
         curl
 
-RUN pip install -U pip setuptools
+RUN pip install -i https://pypi.python.org/simple -U pip distribute setuptools
 RUN pip install Pydap==3.2.1
 
 # Set build compiler environment 
