@@ -43,6 +43,7 @@ matrix:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
     script:
+      - git branch
       - gmsh --version
       - pip freeze | grep Pydap
       - pip freeze | grep numpy
@@ -157,6 +158,7 @@ matrix:
       - export LIBRARY_PATH="/usr/lib/python2.7/dist-packages/Scientific/:$LIBRARY_PATH"
       - export PYTHONPATH="/usr/lib/python2.7/dist-packages/Scientific/:$PYTHONPATH"
     script:
+      - git branch
       - gmsh --version
       - make
       - make unittest
@@ -213,6 +215,7 @@ matrix:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
     script:
+      - git branch
       - gmsh --version
       - pip freeze | grep Pydap
       - make
@@ -253,6 +256,7 @@ matrix:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
     script:
+      - git branch
       - gmsh --version
       - pip freeze | grep Pydap
       - pip freeze | grep numpy
@@ -296,6 +300,7 @@ matrix:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
     script:
+      - git branch
       - gmsh --version
       - pip freeze | grep Pydap
       - pip freeze | grep numpy

@@ -46,7 +46,7 @@ WORKDIR /home/shingle
 RUN git clone https://github.com/adamcandy/Shingle.git
 WORKDIR /home/shingle/Shingle
 
-RUN git checkout simplify_build
+RUN git checkout build-fixes
 
 #ARG SHINGLE_URL=unknown
 RUN git pull
