@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
         curl \
         wget
 
-RUN pip install -i https://pypi.python.org/simple -U pip distribute setuptools
+RUN pip install -i https://pypi.python.org/simple -U pip setuptools
 RUN pip install Pydap==3.2.1
 RUN pip install Shapely==1.5.9
 RUN gmsh --version
