@@ -67,7 +67,7 @@ matrix:
     dist: trusty
     language: cpp
     install:
-      - docker build -t shingle .
+      - docker build -f Dockerfile_trusty -t shingle .
     script:
       - docker run -a stdout -t shingle make unittest
       - docker run -v $PWD:/run -w="/run" -a stdout -t shingle shingle -t
@@ -82,7 +82,7 @@ matrix:
       - NAME=precise-docker
     services:
       - docker
-    dist: trusty
+    dist: precise
     language: cpp
     install:
       - docker build -f Dockerfile_precise -t shingle .
@@ -100,7 +100,7 @@ matrix:
       - NAME=xenial-docker
     services:
       - docker
-    dist: trusty
+    dist: xenial
     language: cpp
     install:
       - docker build -f Dockerfile_xenial -t shingle .

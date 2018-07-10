@@ -1,7 +1,7 @@
 # DockerFile for a Shingle development container
 
 # Use a Trusty base image
-FROM ubuntu:trusty
+FROM ubuntu:precise
 
 # This DockerFile is looked after by
 MAINTAINER Adam Candy <contact@shingleproject.org>

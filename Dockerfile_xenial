@@ -1,7 +1,7 @@
 # DockerFile for a Shingle development container
 
 # Use a Xenial base image
-FROM ubuntu:precise
+FROM ubuntu:xenial
 
 # This DockerFile is looked after by
 MAINTAINER Adam Candy <contact@shingleproject.org>
