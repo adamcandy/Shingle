@@ -8,6 +8,7 @@ MAINTAINER Adam Candy <contact@shingleproject.org>
 
 RUN apt-get update && apt-get install -y \
         tree
+
 RUN pwd
 RUN tree adamcandy
 RUN tree
