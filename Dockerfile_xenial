@@ -34,13 +34,12 @@ RUN apt-get update && apt-get install -y \
 #    pip install Pydap
 
 #RUN pip install -i https://pypi.python.org/simple -U pip distribute setuptools
-RUN pip install -U pip setuptools
+RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
 # RUN pip install Pydap
 RUN pip install Pydap==3.2.1
 
 RUN gmsh --version
 
-RUN pip install -i https://pypi.python.org/simple/ --upgrade pip
 
 
 # Set build compiler environment 
