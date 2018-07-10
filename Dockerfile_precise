@@ -30,6 +30,7 @@ RUN apt-get update && apt-get install -y \
 RUN pip install -i https://pypi.python.org/simple -U pip distribute setuptools
 RUN pip install Pydap==3.2.1
 RUN pip install Shapely
+RUN gmsh --version
 
 # Set build compiler environment 
 ENV CC=gcc

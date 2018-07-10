@@ -43,6 +43,7 @@ matrix:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
     script:
+      - gmsh --version
       - pip freeze | grep Pydap
       - pip freeze | grep numpy
       - make
@@ -156,6 +157,7 @@ matrix:
       - export LIBRARY_PATH="/usr/lib/python2.7/dist-packages/Scientific/:$LIBRARY_PATH"
       - export PYTHONPATH="/usr/lib/python2.7/dist-packages/Scientific/:$PYTHONPATH"
     script:
+      - gmsh --version
       - make
       - make unittest
       # Pre-download, to best work with Travis timeout
@@ -211,6 +213,7 @@ matrix:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
     script:
+      - gmsh --version
       - pip freeze | grep Pydap
       - make
       - make unittest
@@ -250,6 +253,7 @@ matrix:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
     script:
+      - gmsh --version
       - pip freeze | grep Pydap
       - pip freeze | grep numpy
       - make
@@ -292,6 +296,7 @@ matrix:
       - export LD_LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LD_LIBRARY_PATH"
       - export LIBRARY_PATH="$HOME/build/shingleproject/Shingle/lib/:$LIBRARY_PATH"
     script:
+      - gmsh --version
       - pip freeze | grep Pydap
       - pip freeze | grep numpy
       - make

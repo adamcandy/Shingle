@@ -16,7 +16,7 @@
 // 
 // Project name: UK_NorthSea_region_opendap_metric
 // Boundary Specification authors: Adam S. Candy (A.S.Candy@tudelft.nl, Technische Universiteit Delft)
-// Created at: 2017/06/08 18:06:57 
+// Created at: 2018/07/05 13:46:23 
 // Project description:
 //   Example simulation domain around the UK and Ireland in the North Sea.
 //       In a latitude-longitude WGS84 projection.
@@ -3174,7 +3174,7 @@ Mesh.CharacteristicLengthExtendFromBoundary = 1;
 
 // External metric field definition
 Field[1] = Structured;
-Field[1].FileName = "/Users/acandy/src/Shingle/test/UK_NorthSea_region_opendap_metric/NorthSea_metric.pos";
+Field[1].FileName = "/Users/asc/src/Shingle/test/UK_NorthSea_region_opendap_metric/NorthSea_metric.pos";
 Field[1].TextFormat = 1;
 
 // constant edge length to use as initial mesh in testing
