@@ -6,8 +6,6 @@ FROM ubuntu:trusty
 # This DockerFile is looked after by
 MAINTAINER Adam Candy <contact@shingleproject.org>
 
-RUN env 
-
 # Install required packages
 RUN apt-get update && apt-get install -y \
         git \
