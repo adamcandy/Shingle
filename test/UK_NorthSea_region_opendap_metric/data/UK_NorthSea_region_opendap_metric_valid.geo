@@ -180,7 +180,7 @@
 //       <value>
 //         <integer_value rank="0">18068</integer_value>
 //         <tolerance>
-//           <integer_value rank="0">500</integer_value>
+//           <integer_value rank="0">800</integer_value>
 //         </tolerance>
 //       </value>
 //     </test>
@@ -188,7 +188,7 @@
 //       <value>
 //         <integer_value rank="0">36136</integer_value>
 //         <tolerance>
-//           <integer_value rank="0">500</integer_value>
+//           <integer_value rank="0">1300</integer_value>
 //         </tolerance>
 //       </value>
 //     </test>
