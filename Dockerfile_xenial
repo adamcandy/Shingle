@@ -21,6 +21,8 @@ RUN apt-get update && apt-get install -y \
         python-matplotlib \
         python-shapely \
         python-pyproj \
+        python-gdal \
+        gdal-bin \
         python-imaging \
         gmsh \
         python-py \
@@ -37,7 +39,7 @@ RUN apt-get update && apt-get install -y \
 RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
 # RUN pip install Pydap
 RUN pip install Pydap==3.2.1
-RUN pip install Shapely==1.5.9
+RUN pip install Shapely==1.4.3
 
 RUN gmsh --version
 

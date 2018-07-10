@@ -21,6 +21,8 @@ RUN apt-get update && apt-get install -y \
         python-matplotlib \
         python-shapely \
         python-pyproj \
+        python-gdal \
+        gdal-bin \
         python-pil \
         gmsh \
         python-pytest \
