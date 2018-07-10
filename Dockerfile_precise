@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y \
         gdal-bin \
         python-imaging \
         gmsh \
-        python-pytest \
+        python-py \
         curl \
         wget
 
