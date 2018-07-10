@@ -6,6 +6,9 @@ FROM ubuntu:trusty
 # This DockerFile is looked after by
 MAINTAINER Adam Candy <contact@shingleproject.org>
 
+RUN pwd
+RUN tree
+
 # Install required packages
 RUN apt-get update && apt-get install -y \
         git \
@@ -48,7 +51,6 @@ WORKDIR /home/shingle
 # Make a copy of the project Shingle
 RUN git clone https://github.com/adamcandy/Shingle.git
 WORKDIR /home/shingle/Shingle
-
 RUN git checkout build-fixes
 
 #ARG SHINGLE_URL=unknown
