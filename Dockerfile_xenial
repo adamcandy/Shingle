@@ -43,7 +43,8 @@ RUN pip install Pydap==3.2.1
 RUN pip freeze
 RUN pip install -U geos
 RUN pip freeze
-RUN pip install Shapely==1.5.9
+#RUN pip install Shapely==1.5.9
+RUN pip install Shapely==1.5.9 --no-binary Shapely==1.5.9
 
 RUN gmsh --version
 
