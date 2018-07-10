@@ -6,7 +6,9 @@ FROM ubuntu:trusty
 # This DockerFile is looked after by
 MAINTAINER Adam Candy <contact@shingleproject.org>
 
+RUN apt-get install tree
 RUN pwd
+RUN tree adamcandy
 RUN tree
 
 # Install required packages
