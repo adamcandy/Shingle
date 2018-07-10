@@ -17,7 +17,6 @@ RUN apt-get update && apt-get install -y \
         python-pip \
         python-scipy \
         python-numpy \
-        python-scientific \
         python-matplotlib \
         python-shapely \
         python-pyproj \
@@ -32,6 +31,7 @@ RUN apt-get update && apt-get install -y \
         curl \
         wget
         
+        #python-scientific \
         #python-dap \
 
 #RUN echo "nameserver 8.8.8.8" >> /etc/resolv.conf && \ 
@@ -40,6 +40,7 @@ RUN apt-get update && apt-get install -y \
 
 #RUN pip install -i https://pypi.python.org/simple -U pip distribute setuptools
 RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
+RUN pip install ScientificPython
 # RUN pip install Pydap
 RUN pip install Pydap==3.2.1
 #RUN pip install Shapely==1.4.3

@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
         python-pyproj \
         python-gdal \
         gdal-bin \
-        python-pil \
+        python-imaging \
         gmsh \
         python-pytest \
         curl \
