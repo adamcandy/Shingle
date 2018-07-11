@@ -22,11 +22,11 @@ RUN apt-get update && apt-get install -y \
         python-pyproj \
         python-gdal \
         gdal-bin \
-        python-imaging \
+        python-pil \
         gmsh \
         python-py \
         libgeos-c1v5 \
-        libgeos-3.5.0 \
+        libgeos-3.6.2 \
         libgeos-dev \
         curl \
         wget
