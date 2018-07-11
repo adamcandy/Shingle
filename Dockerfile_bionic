@@ -43,8 +43,9 @@ RUN apt-get update && apt-get install -y \
 #RUN pip install -i https://pypi.python.org/simple -U pip distribute setuptools
 RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
 #RUN pip install ScientificPython
+RUN pip install --allow-external ScientificPython ScientificPython==2.6
 
-RUN pip install -e hg+http://bitbucket.org/khinsen/scientificpython
+#RUN pip install -e hg+http://bitbucket.org/khinsen/scientificpython
 
 # RUN pip install Pydap
 RUN pip install Pydap==3.2.1
