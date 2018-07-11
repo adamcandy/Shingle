@@ -27,6 +27,7 @@ RUN apt-get update && apt-get install -y \
         python-pil \
         gmsh \
         python-py \
+        python-netcdf4 \
         libgeos-c1v5 \
         libgeos-3.6.2 \
         libgeos-dev \
