@@ -6,6 +6,8 @@ FROM ubuntu:bionic
 # This DockerFile is looked after by
 MAINTAINER Adam Candy <contact@shingleproject.org>
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Install required packages
 RUN apt-get update && apt-get install -y \
         git \
