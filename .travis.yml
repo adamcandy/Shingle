@@ -78,20 +78,20 @@ matrix:
   #
   # Ubuntu Precise 12.04 Docker container build and test
   #
-  - env:
-      - NAME=precise-docker
-    services:
-      - docker
-    dist: xenial
-    language: cpp
-    install:
-      - docker build -f Dockerfile_precise -t shingle .
-    script:
-      - docker run -a stdout -t shingle make unittest
-      - docker run -v $PWD:/run -w="/run" -a stdout -t shingle shingle -t
+  # - env:
+  #     - NAME=precise-docker
+  #   services:
+  #     - docker
+  #   dist: xenial
+  #   language: cpp
+  #   install:
+  #     - docker build -f Dockerfile_precise -t shingle .
+  #   script:
+  #     - docker run -a stdout -t shingle make unittest
+  #     - docker run -v $PWD:/run -w="/run" -a stdout -t shingle shingle -t
 
 
-  # Build Environment #4
+  # Build Environment #3
   # Failure Pydap==3.2.1 not found
   #
   # Ubuntu Xenial 16.04 Docker container build and test
@@ -104,6 +104,24 @@ matrix:
     language: cpp
     install:
       - docker build -f Dockerfile_xenial -t shingle .
+    script:
+      - docker run -a stdout -t shingle make unittest
+      - docker run -v $PWD:/run -w="/run" -a stdout -t shingle shingle -t
+
+  
+  # Build Environment #4
+  # Failure Pydap==3.2.1 not found
+  #
+  # Ubuntu Xenial 16.04 Docker container build and test
+  #
+  - env:
+      - NAME=bionic-docker
+    services:
+      - docker
+    dist: xenial
+    language: cpp
+    install:
+      - docker build -f Dockerfile_bionic -t shingle .
     script:
       - docker run -a stdout -t shingle make unittest
       - docker run -v $PWD:/run -w="/run" -a stdout -t shingle shingle -t

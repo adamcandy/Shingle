@@ -1,7 +1,7 @@
 # DockerFile for a Shingle development container
 
-# Use a Xenial base image
-FROM ubuntu:xenial
+# Use a Bionic base image
+FROM ubuntu:bionic
 
 # This DockerFile is looked after by
 MAINTAINER Adam Candy <contact@shingleproject.org>
