@@ -41,9 +41,9 @@ RUN apt-get update && apt-get install -y \
 
 #from Scientific._netcdf import *  ImportError: No module named _netcdf
 
-#RUN pip install -i https://pypi.python.org/simple -U pip distribute setuptools
+#RUN pip install -i https://pypi.pythcn.org/simple -U pip distribute setuptools
 RUN pip install -i https://pypi.python.org/simple/ --upgrade pip setuptools
-RUN pip install ScientificPython --no-cache-dir --no-binary ScientificPython
+RUN pip install --force-reinstall --ignore-installed --no-binary --no-cache-dir --no-binary :all: ScientificPython
 RUN tree /usr/local/lib/python2.7/dist-packages/Scientific/
 
 
