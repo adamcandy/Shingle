@@ -22,7 +22,6 @@ RUN apt-get update && apt-get install -y \
         python-pyproj \
         python-gdal \
         gdal-bin \
-        python-netcdf \
         python-imaging \
         gmsh \
         python-py \
@@ -75,6 +74,10 @@ RUN git checkout build-fixes
 RUN git pull
 
 ENV PATH /home/shingle/Shingle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV LD_LIBRARY_PATH="/usr/local/lib/python2.7/dist-packages/Scientific/:$LD_LIBRARY_PATH"
+ENV LIBRARY_PATH="/usr/local/lib/python2.7/dist-packages/Scientific/:$LIBRARY_PATH"
+ENV PYTHONPATH="/usr/local/lib/python2.7/dist-packages/Scientific/:$PYTHONPATH"
+
 
 #RUN ./configure
 
