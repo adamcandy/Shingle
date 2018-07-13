@@ -369,6 +369,80 @@ matrix:
       - make test
 
 
+  # Build Environment #11
+  #
+  # Ubuntu Xenial 16.04 pip pypi
+  #
+  - env:
+      - NAME=Xenial-16.04-pypi
+    dist: xenial
+    language: python
+    python: 2.7
+    sudo: required
+    compiler: gcc
+    addons:
+      apt:
+        packages:
+          - libnetcdf-dev
+          - netcdf-bin
+          - python-netcdf4
+          - gmsh
+          - wget
+    virtualenv:
+      system_site_packages: true
+    install:
+      - pip install numpy matplotlib pyproj shapely Pillow pytest
+      - pip install Pydap==3.2.1
+      - pip install --force-reinstall --ignore-installed --no-cache-dir --no-binary ScientificPython ScientificPython
+      - pip install -U geos
+      - pip install --no-binary Shapely Shapely==1.5.9
+      - pip install shingle
+    script:
+      # Pre-download, to best work with Travis timeout
+      - make pre_download_large_datasets
+      - which shingle
+      - shingle -t test -tag continuous
+
+
+  # Build Environment #12
+  #
+  # macOS 10.13 High Sierra pip base packages build
+  #
+  - env:
+      - NAME=HighSierra-10.13-pypi
+    os: osx
+    language: generic
+    before_install:
+      # See pyenv homebrew recommendations <https://github.com/yyuu/pyenv/wiki#suggested-build-environment>.
+      # See https://docs.travis-ci.com/user/osx-ci-environment/#A-note-on-upgrading-packages.
+      # virtualenv needs pyenv knowledge.
+      # For pip: pyenv-virtualenv <https://github.com/yyuu/pyenv-virtualenv/blob/master/README.md>.
+      - brew update
+      - brew install openssl readline
+      - brew outdated pyenv || brew upgrade pyenv
+      - brew install pyenv-virtualenv
+      - pyenv install 2.7.15
+      - export PYENV_VERSION=2.7.15
+      - export PATH="/Users/travis/.pyenv/shims:${PATH}"
+      - pyenv virtualenv venv
+    install:
+      - python -m pip install -U pip
+      - pip install numpy==1.13.3
+      - pip install matplotlib pyproj shapely Pillow pytest requests
+      - pip install Pydap==3.2.1
+      - rm -f '/usr/local/include/c++'
+      - brew install gmsh
+      - brew link --overwrite gcc
+      - brew install netcdf
+      - pip install ScientificPython
+      - pip install shingle
+    script:
+      # Pre-download, to best work with Travis timeout
+      - make pre_download_large_datasets
+      - which shingle
+      - shingle -t test -tag continuous
+
+
 notifications:
   slack:
     secure: RRdmxLqjwm5LVcHmeoLs+WAB8FhYEMb+riZMvAoVxt4/7FuSIvyil/oeL8KI7P7g/EPnN8hQlf7duyGwAaih/gWKd47vDnmhir7VbO6fe3zBVvX9TVa/kuqejGSnJlOPw6dFDMLoCqnJ08dwUWzvvAmCHr7wod16PfI557pqvAE=
