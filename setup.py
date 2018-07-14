@@ -42,7 +42,7 @@ libspud = Extension('libspud',
 #)
 
 setup(name='shingle',
-    version='2.1.7',
+    version='2.1.8',
     description='Generation of boundary representation and mesh spatial discretisations from arbitrary geophysical fields.',
     author = 'Adam S. Candy',
     author_email='contact@shingleproject.org',
