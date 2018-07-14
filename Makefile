@@ -40,6 +40,7 @@ default: bin/shingle
 bin/shingle: src/shingle lib/libspud.so
 	@mkdir -p bin
 	@cp src/shingle bin/shingle
+	@chmod a+rx bin/shingle
 
 install: bin/shingle
 	@$(ECHO) 'INSTALL shingle Python library'
