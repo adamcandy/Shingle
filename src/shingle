@@ -9,7 +9,7 @@
 #            boundary representation from arbitrary geophysical fields
 #            and initialisation for anisotropic, unstructured meshing.
 # 
-#            Web: https://www.shingleproject.org
+#            Web: http://www.shingleproject.org
 #
 #            Contact: Dr Adam S. Candy, contact@shingleproject.org
 #
@@ -48,7 +48,11 @@ warnings.simplefilter(action = "ignore", category = FutureWarning)
 
 import shingle
 from shingle import Prime
+from shingle.Version import version
 
+__version__ = version
+__author__ = 'Adam S. Candy'
+__license__ = 'GPL3'
 
 if __name__ == "__main__":
     stat = Prime.main()

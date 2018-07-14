@@ -6,7 +6,7 @@
 #            boundary representation from arbitrary geophysical fields
 #            and initialisation for anisotropic, unstructured meshing.
 # 
-#            Web: https://www.shingleproject.org
+#            Web: http://www.shingleproject.org
 #
 #            Contact: Dr Adam S. Candy, contact@shingleproject.org
 #
