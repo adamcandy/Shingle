@@ -95,10 +95,10 @@ packageclean:
 # ------------------------------------------------------------------------
 
 test: bin/shingle
-	@./bin/shingle -t test -tag continuous
+	@./bin/shingle -t test --tag continuous
 
 testimage:
-	@./bin/shingle -t test -image
+	@./bin/shingle -t test --image
 	@convert ./test/*/*.png ./test/ShingleVerificationOverviewImages.pdf
 
 testimagelabel:

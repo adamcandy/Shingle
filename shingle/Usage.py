@@ -46,21 +46,22 @@ def usage(unknown = None):
    -l (logfile)                | Log messages to file (optional filename, default shingle.log in project folder)
    -c                          | Use cache
                                |_________________________________________________________________________________
-   -stage stagename            | Partial processing, up to given stage from: %(stages)s
-   -tag tagname                | Specify test cases to include by tag, can add multiple -tag options
-   -pickup                     | Use existing generated output if exists and  where possible
-   -plot                       | Plot contour before representation generation 
-   -image                      | Generate image of mesh (forced).
+   --stage stagename           | Partial processing, up to given stage from: %(stages)s
+   --tag tagname               | Specify test cases to include by tag, can add multiple --tag (tagname)
+                               |   prefix a tag with '-' to exclude cases with the tag
+   --pickup                    | Use existing generated output if exists and  where possible
+   --plot                      | Plot contour before representation generation 
+   --image                     | Generate image of mesh (forced).
                                |   combine with Xvfb :5 -screen 0 2560x1440x8 to run in the background
-   -mesh                       | Mesh geometry (forced)
-   -update                     | Update verification test files
+   --mesh                      | Mesh geometry (forced)
+   --update                    | Update verification test files
                                |_________________________________________________________________________________
-   -legacy                     | Enable legacy options
+   --legacy                    | Enable legacy options
                                |  combine with -h for further details
                                |_________________________________________________________________________________
    -h                          | Help
    -v                          | Verbose
-   -vv                         | Very verbose (debugging)
+   --debug                     | Very verbose (debugging)
    -q                          | Quiet
                                \__________________________________________________________________________________''' % { 'cmdname': os.path.basename(sys.argv[0]), 'stages':' '.             join(universe._all_stages) }
     if universe.legacy.legacy:
@@ -88,15 +89,15 @@ def usage(unknown = None):
                                \_________________________________________________________________________________
 Example usage:
 Include only the main Antarctic mass (path 1), and only parts which lie below 60S
-  %(cmdname)s -legacy -r 'latitude <= -60.0' -p 1
+  %(cmdname)s --legacy -r 'latitude <= -60.0' -p 1
 Filchner-Ronne extended out to the 65S parallel
-  %(cmdname)s -legacy -no -b -85.0:-20.0,-89.0:-75.0 -64.0:-30.0,-89.0:-70.0 -30.0:-20.0,-89.0:-75.0 -lat '-65.0'
+  %(cmdname)s --legacy -no -b -85.0:-20.0,-89.0:-75.0 -64.0:-30.0,-89.0:-70.0 -30.0:-20.0,-89.0:-75.0 -lat '-65.0'
 Antarctica, everything below the 60S parallel, coarse approximation to open boundary
-  %(cmdname)s -legacy -dx 2 -r 'latitude <= -60'
+  %(cmdname)s --legacy -dx 2 -r 'latitude <= -60'
 Small region close to the Filcher-Ronne ice shelf
-  %(cmdname)s -legacy -no -b -85.0:-20.0,-89.0:-75.0 -64.0:-30.0,-89.0:-70.0 -30.0:-20.0,-89.0:-75.0 -p 1 -r 'latitude <= -83'
+  %(cmdname)s --legacy -no -b -85.0:-20.0,-89.0:-75.0 -64.0:-30.0,-89.0:-70.0 -30.0:-20.0,-89.0:-75.0 -p 1 -r 'latitude <= -83'
 Amundsen Sea
-  %(cmdname)s -legacy -no -b -130.0:-85.0,-85.0:-60.0 -lat -64.0''' % { 'cmdname': os.path.basename(sys.argv[0]), 'stages':' '.join(universe._all_stages) }
+  %(cmdname)s --legacy -no -b -130.0:-85.0,-85.0:-60.0 -lat -64.0''' % { 'cmdname': os.path.basename(sys.argv[0]), 'stages':' '.join(universe._all_stages) }
     sys.exit(1)
 
 

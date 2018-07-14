@@ -208,7 +208,7 @@ class ReadArguments(object):
             self.argument = self.NextArgument()
             if   (self.argument == '-h'): help_request = True
             elif (self.argument == '-v'): universe.verbose = True
-            elif (self.argument == '-vv'): universe.verbose = True; universe.debug = True; 
+            elif (self.argument == '--debug'): universe.verbose = True; universe.debug = True; 
             elif (self.argument == '-q'): universe.verbose = False
             elif (self.argument == '-t'):
                 if ((len(self.arguments) > 0) and (self.arguments[0][0] != '-')):
@@ -220,16 +220,16 @@ class ReadArguments(object):
                 if ((len(self.arguments) > 0) and (self.arguments[0][0] != '-')):
                     universe.logfilename = self.NextArgument()
 
-            elif (self.argument == '-tag'): universe.tags.append(self.NextArgument())
+            elif (self.argument == '--tag'): universe.tags.append(self.NextArgument())
             elif (self.argument == '-c'): universe.cache = True
-            elif (self.argument == '-plot'): universe.plotcontour = True; universe.plotcontouronly = True
-            elif (self.argument == '-image'): universe.generate_mesh_image = True
-            elif (self.argument == '-update'): universe.verification_update = True
-            elif (self.argument == '-mesh'): universe.generate_mesh = True
-            elif (self.argument == '-pickup'): universe.pickup = True
-            elif (self.argument == '-stage'): self._stage = self.NextArgument()
+            elif (self.argument == '--plot'): universe.plotcontour = True; universe.plotcontouronly = True
+            elif (self.argument == '--image'): universe.generate_mesh_image = True
+            elif (self.argument == '--update'): universe.verification_update = True
+            elif (self.argument == '--mesh'): universe.generate_mesh = True
+            elif (self.argument == '--pickup'): universe.pickup = True
+            elif (self.argument == '--stage'): self._stage = self.NextArgument()
 
-            elif (self.argument == '-legacy'): self.legacy = True; universe.legacy.legacy = True; report('Including legacy command line options')
+            elif (self.argument == '--legacy'): self.legacy = True; universe.legacy.legacy = True; report('Including legacy command line options')
             elif self.legacy:
                 self.ReadLegacy()
             else:

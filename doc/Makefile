@@ -23,7 +23,7 @@ endif
 
 clean: 
 	@rm -f *.{aux,log,bbl,blg,out,toc,pyg,thm}
-	@rm -f verification_figures.tex ShingleManual.pdf
+	@rm -f verification_figures.tex
 	@rm -rf _minted-ShingleManual
 
 .PHONY: verification_figures ShingleManual

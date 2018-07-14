@@ -112,6 +112,9 @@ class VerificationTestEngine(object):
                     if len(universe.tags) > 0:
                         include = False
                         for tag in self.GetTags(fullpath):
+                            if ('-' + tag) in universe.tags:
+                                include = False
+                                break
                             if tag in universe.tags:
                                 include = True
                                 break
