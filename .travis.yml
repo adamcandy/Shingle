@@ -396,8 +396,10 @@ matrix:
       - pip install --force-reinstall --ignore-installed --no-cache-dir --no-binary ScientificPython ScientificPython
       - pip install -U geos
       - pip install --no-binary Shapely Shapely==1.5.9
+      - pip install Markdown>=2.0.1
       - pip install shingle
     script:
+      - pip show shingle
       # Pre-download, to best work with Travis timeout
       - make pre_download_large_datasets
       - which shingle
@@ -435,8 +437,10 @@ matrix:
       - brew link --overwrite gcc
       - brew install netcdf
       - pip install ScientificPython
+      - pip install Markdown>=2.0.1
       - pip install shingle
     script:
+      - pip show shingle
       # Pre-download, to best work with Travis timeout
       - make pre_download_large_datasets
       - which shingle
