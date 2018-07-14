@@ -1,19 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-##########################################################################
+###########################################################################
+#
+#  Copyright (C) 2011-2018 Dr Adam S. Candy and others.
 #  
-#  Copyright (C) 2011-2016 Dr Adam S. Candy
-# 
 #  Shingle:  An approach and software library for the generation of
 #            boundary representation from arbitrary geophysical fields
 #            and initialisation for anisotropic, unstructured meshing.
-# 
+#  
 #            Web: http://www.shingleproject.org
-#
+#  
 #            Contact: Dr Adam S. Candy, contact@shingleproject.org
-#
+#  
 #  This file is part of the Shingle project.
+#  
+#  Please see the AUTHORS file in the main source directory for a full list
+#  of contributors.
 #  
 #  Shingle is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -28,5 +31,4 @@
 #  You should have received a copy of the GNU General Public License
 #  along with Shingle.  If not, see <http://www.gnu.org/licenses/>.
 #
-##########################################################################
-
+###########################################################################

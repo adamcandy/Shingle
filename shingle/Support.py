@@ -1,19 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-##########################################################################
+###########################################################################
+#
+#  Copyright (C) 2011-2018 Dr Adam S. Candy and others.
 #  
-#  Copyright (C) 2011-2016 Dr Adam S. Candy
-# 
 #  Shingle:  An approach and software library for the generation of
 #            boundary representation from arbitrary geophysical fields
 #            and initialisation for anisotropic, unstructured meshing.
-# 
+#  
 #            Web: http://www.shingleproject.org
-#
+#  
 #            Contact: Dr Adam S. Candy, contact@shingleproject.org
-#
+#  
 #  This file is part of the Shingle project.
+#  
+#  Please see the AUTHORS file in the main source directory for a full list
+#  of contributors.
 #  
 #  Shingle is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -28,8 +31,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with Shingle.  If not, see <http://www.gnu.org/licenses/>.
 #
-##########################################################################
-
+###########################################################################
 
 import os
 from Universe import universe
@@ -211,13 +213,13 @@ class ReadArguments(object):
             self.argument = self.NextArgument()
             if   (self.argument == '-h'): help_request = True
             elif (self.argument == '-v'): universe.verbose = True
-            elif (self.argument == '--debug'): universe.verbose = True; universe.debug = True; 
+            elif (self.argument == '--debug'): universe.verbose = True; universe.debug = True;
             elif (self.argument == '-q'): universe.verbose = False
             elif (self.argument == '-t'):
                 if ((len(self.arguments) > 0) and (self.arguments[0][0] != '-')):
                     universe.testfolder = self.NextArgument()
                 else:
-                    universe.testfolder = SourceTestFolder() 
+                    universe.testfolder = SourceTestFolder()
             elif (self.argument == '-l'):
                 universe.log_active = True
                 if ((len(self.arguments) > 0) and (self.arguments[0][0] != '-')):
@@ -244,7 +246,7 @@ class ReadArguments(object):
         if len(free_arguments) > 0:
             universe.optiontreesource = free_arguments[0]
         if len(free_arguments) > 1:
-           error('More than one source BRML specified, working on only the first.', warning=True) 
+           error('More than one source BRML specified, working on only the first.', warning=True)
 
         universe.default.region = expand_boxes(universe.default.region, self._box)
 
@@ -288,9 +290,6 @@ class ReadArguments(object):
         elif (self.argument == '-b'):
             while ((len(self.arguments) > 0) and ((self.arguments[0][0] != '-') or ( (self.arguments[0][0] == '-') and (self.arguments[0][1].isdigit()) ))):
                 self._box.append(self.NextArgument())
-
-
-
 
 
 

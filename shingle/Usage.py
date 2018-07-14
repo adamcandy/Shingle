@@ -1,19 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-##########################################################################
+###########################################################################
+#
+#  Copyright (C) 2011-2018 Dr Adam S. Candy and others.
 #  
-#  Copyright (C) 2011-2016 Dr Adam S. Candy
-# 
 #  Shingle:  An approach and software library for the generation of
 #            boundary representation from arbitrary geophysical fields
 #            and initialisation for anisotropic, unstructured meshing.
-# 
+#  
 #            Web: http://www.shingleproject.org
-#
+#  
 #            Contact: Dr Adam S. Candy, contact@shingleproject.org
-#
+#  
 #  This file is part of the Shingle project.
+#  
+#  Please see the AUTHORS file in the main source directory for a full list
+#  of contributors.
 #  
 #  Shingle is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -28,7 +31,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with Shingle.  If not, see <http://www.gnu.org/licenses/>.
 #
-##########################################################################
+###########################################################################
 
 import sys
 import os
@@ -39,7 +42,7 @@ def usage(unknown = None):
         print 'Unknown option ' + unknown
     print '''Usage for %(cmdname)s
  %(cmdname)s [options] (filename)
-- Options ---------------------\ 
+- Options ---------------------\
    filename                    | Option tree file fully specifying the
                                |   surface geoid representation and spatial discretisation
    -t (testfolder)             | Run all tests located in testfolder (defaults to the source test folder)
@@ -50,7 +53,7 @@ def usage(unknown = None):
    --tag tagname               | Specify test cases to include by tag, can add multiple --tag (tagname)
                                |   prefix a tag with '-' to exclude cases with the tag
    --pickup                    | Use existing generated output if exists and  where possible
-   --plot                      | Plot contour before representation generation 
+   --plot                      | Plot contour before representation generation
    --image                     | Generate image of mesh (forced).
                                |   combine with Xvfb :5 -screen 0 2560x1440x8 to run in the background
    --mesh                      | Mesh geometry (forced)
@@ -65,7 +68,7 @@ def usage(unknown = None):
    -q                          | Quiet
                                \__________________________________________________________________________________''' % { 'cmdname': os.path.basename(sys.argv[0]), 'stages':' '.             join(universe._all_stages) }
     if universe.legacy.legacy:
-        print '''Legacy options ----------------\ 
+        print '''Legacy options ----------------\
  %(cmdname)s [options]
    -n filename                 | Input netCDF file
    -f filename                 | Output Gmsh file
@@ -104,4 +107,3 @@ Amundsen Sea
 #Small islands, single out, or group with -p
 #  312, 314
 #  79 - an island on 90W 68S
-

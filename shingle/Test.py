@@ -1,19 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-##########################################################################
+###########################################################################
+#
+#  Copyright (C) 2011-2018 Dr Adam S. Candy and others.
 #  
-#  Copyright (C) 2011-2016 Dr Adam S. Candy
-# 
 #  Shingle:  An approach and software library for the generation of
 #            boundary representation from arbitrary geophysical fields
 #            and initialisation for anisotropic, unstructured meshing.
-# 
+#  
 #            Web: http://www.shingleproject.org
-#
+#  
 #            Contact: Dr Adam S. Candy, contact@shingleproject.org
-#
+#  
 #  This file is part of the Shingle project.
+#  
+#  Please see the AUTHORS file in the main source directory for a full list
+#  of contributors.
 #  
 #  Shingle is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -28,7 +31,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with Shingle.  If not, see <http://www.gnu.org/licenses/>.
 #
-##########################################################################
+###########################################################################
 
 import os
 from Universe import universe
@@ -69,7 +72,7 @@ class VerificationTestEngine(object):
             return
         self.GetNames()
 
-        report('%(blue)sVerification test engine%(end)s%(grey)s, tests located in directory: %(folder)s%(end)s', var={'folder':self._folder}, test=True) 
+        report('%(blue)sVerification test engine%(end)s%(grey)s, tests located in directory: %(folder)s%(end)s', var={'folder':self._folder}, test=True)
         self.EnableLogging()
         self.Test()
         self.Summary()
@@ -81,8 +84,8 @@ class VerificationTestEngine(object):
         return self.locations
 
     def Summary(self):
-        pass_number = len(self.passes) 
-        fail_number = len(self.failures) 
+        pass_number = len(self.passes)
+        fail_number = len(self.failures)
         total = pass_number + fail_number
         if fail_number == 0:
             report('%(brightgreen)sPASS%(end)s  %(grey)s(%(total)d in total)%(end)s', var = {'total':total}, test=True)
@@ -188,7 +191,7 @@ class VerificationTestEngine(object):
     def List(self):
         spacing = str(len(str(self.total_number)) + 2)
 
-        report('%(blue)sVerification test problems:%(end)s %(grey)s(%(total)d in total)%(end)s', var={'total':self.total_number}, test=True) 
+        report('%(blue)sVerification test problems:%(end)s %(grey)s(%(total)d in total)%(end)s', var={'total':self.total_number}, test=True)
         for i in range(self.total_number):
             number = i + 1
             numberstr = '[%(number)d]' % {'number':number}
@@ -196,7 +199,7 @@ class VerificationTestEngine(object):
             if location.startswith('./'):
                 locationstr = location[2:]
             else:
-                locationstr = location 
+                locationstr = location
             report('%(number)'+spacing+'s %(location)s %(yellow)s%(name)s%(end)s %(grey)s(%(test_number)s)%(end)s', var={'number':numberstr, 'location':locationstr, 'name':self.GetNames()[i], 'test_number':self.numbers[i]}, test=True)
             if self.numbers[i] == 0:
                 error('Case has no validation tests defined.', warning=True)
@@ -210,7 +213,7 @@ class VerificationTestEngine(object):
                 if location.startswith('./'):
                     locationstr = location[2:]
                 else:
-                    locationstr = location 
+                    locationstr = location
                 report('%(red)s%(number)'+spacing+'s%(end)s %(location)s', var={'number':numberstr, 'location':locationstr}, test=True, indent=1)
 
     def CheckForDuplicates(self):
@@ -233,7 +236,7 @@ class VerificationTestEngine(object):
         spacing = str(len(str(self.total_number)) + 2)
         self.List()
         self.CheckForDuplicates()
-        report('%(blue)sBeginning verification cases:%(end)s %(grey)s(%(total)d cases and %(tests)s tests in total)%(end)s', var={'total':self.total_number, 'tests':sum(self.numbers)}, test=True) 
+        report('%(blue)sBeginning verification cases:%(end)s %(grey)s(%(total)d cases and %(tests)s tests in total)%(end)s', var={'total':self.total_number, 'tests':sum(self.numbers)}, test=True)
         for i in range(self.total_number):
             number = i + 1
             numberstr = '[%(number)d]' % {'number':number}
@@ -241,17 +244,17 @@ class VerificationTestEngine(object):
             if location.startswith('./'):
                 locationstr = location[2:]
             else:
-                locationstr = location 
+                locationstr = location
             report('%(number)'+spacing+'s %(location)s', var={'number':numberstr, 'location':locationstr}, test=True)
             if specification.have_option('/geoid_mesh/generate') or universe.generate_mesh:
-                report('%(blue)sGenerating surface geoid representation and discretising%(end)s%(grey)s%(end)s', test=True, indent=1) 
+                report('%(blue)sGenerating surface geoid representation and discretising%(end)s%(grey)s%(end)s', test=True, indent=1)
             else:
-                report('%(blue)sGenerating surface geoid representation%(end)s%(grey)s%(end)s', test=True, indent=1) 
+                report('%(blue)sGenerating surface geoid representation%(end)s%(grey)s%(end)s', test=True, indent=1)
 
             # If updating, only run test if needed
             #s = SpatialDiscretisation(case=location, load_only=True)
             #if not (universe.verification_update and os.path.exists(s.PathRelative(s.Output()))):
-            
+
             s = SpatialDiscretisation(case=location)
 
             name = deepcopy(s.Name())
@@ -365,7 +368,7 @@ class VerificationTests(object):
             def isSameLocation(a, b, tolerance=1E-5):
                 #print [ abs(float(a[0]) - float(b[0])), abs(float(a[1]) - float(b[1])), abs(float(a[2]) - float(b[2])) ]
                 return [ abs(float(a[0]) - float(b[0])), abs(float(a[1]) - float(b[1])), abs(float(a[2]) - float(b[2])) ] < [tolerance] * 3
-        
+
             additions = {}
             removals = {}
             # Matches point number, x, y, z
@@ -382,9 +385,9 @@ class VerificationTests(object):
                     if not found:
                         return cached
                     removals[found.group(1)] = found.group(2,3,4)
-                #else 
+                #else
                 #    return cached
-        
+
             #print 'Removals: ', removals.keys()
             #print 'Additions:', additions.keys()
             same = []
@@ -394,10 +397,10 @@ class VerificationTests(object):
                 #    return cached
                 if isSameLocation(removals[identification], additions[identification]):
                     same.append(identification)
-        
+
             if len(same) == 0:
                 return cached
-            
+
             #print 'Same:', same
             new = []
             for line in cached:
@@ -417,7 +420,7 @@ class VerificationTests(object):
 #    --new-line-format='+%l
 # ' \
 #    --unchanged-line-format='' \
-# /Users/acandy/src/Shingle/test/Amundsen_Sea/Amundsen_Sea.geo /Users/acandy/src/Shingle/test/Amundsen_Sea/data/Amundsen_Sea_valid.geo 
+# /Users/acandy/src/Shingle/test/Amundsen_Sea/Amundsen_Sea.geo /Users/acandy/src/Shingle/test/Amundsen_Sea/data/Amundsen_Sea_valid.geo
             cmd = ['diff', '--old-line-format=- %l'+os.linesep, '--new-line-format=+ %l'+os.linesep, '--unchanged-line-format=', fullvalid, fullpath ]
 
             diff = Execute(cmd, wait=False)
@@ -442,7 +445,7 @@ class VerificationTests(object):
             return False
 
         def update(fullpath, fullvalid, compressed):
-            report('%(blue)sUpdating valid boundary representation file:%(end)s%(yellow)s%(valid)s%(end)s', var = {'valid':fullvalid}, test=True, indent=1) 
+            report('%(blue)sUpdating valid boundary representation file:%(end)s%(yellow)s%(valid)s%(end)s', var = {'valid':fullvalid}, test=True, indent=1)
             f = open(fullpath, 'r')
             content = f.read()
             f.close()
@@ -574,7 +577,7 @@ class VerificationTests(object):
         total = self.GetTestNumber()
         if total == 0:
             return True
-        report('%(blue)sReading validation tests%(end)s %(grey)s(%(total)d in total)%(end)s', var={'total':total}, test=True, indent=1) 
+        report('%(blue)sReading validation tests%(end)s %(grey)s(%(total)d in total)%(end)s', var={'total':total}, test=True, indent=1)
 
         passes = 0
         number = 0
@@ -590,7 +593,7 @@ class VerificationTests(object):
                 continue
             if result:
                 passes += 1
-            report('%(blue)sTest %(number)s:%(end)s %(yellow)s%(name)s%(end)s' + ResultToString(result), var={'name':name, 'number':number + 1}, test=True, indent=2) 
+            report('%(blue)sTest %(number)s:%(end)s %(yellow)s%(name)s%(end)s' + ResultToString(result), var={'name':name, 'number':number + 1}, test=True, indent=2)
 
         # Include legacy test cases
         if universe.legacy.legacy:
@@ -598,7 +601,7 @@ class VerificationTests(object):
             total = 1
             number = 1
         self.result = passes == total
-        report('%(blue)sResult:%(end)s %(yellow)s%(name)s%(end)s' + ResultToString(passes == total, total = total, show_failures=True, failures=total-passes), var={'name':self.representation.spatial_discretisation.Name(), 'number':number + 1, 'passes':passes, 'failures':total-passes}, test=True, indent=1) 
+        report('%(blue)sResult:%(end)s %(yellow)s%(name)s%(end)s' + ResultToString(passes == total, total = total, show_failures=True, failures=total-passes), var={'name':self.representation.spatial_discretisation.Name(), 'number':number + 1, 'passes':passes, 'failures':total-passes}, test=True, indent=1)
 
 
 def ResultToString(result, total=None, show_failures=False, failures=None):
@@ -623,4 +626,3 @@ def ResultToString(result, total=None, show_failures=False, failures=None):
     else:
         string = '  %(brightred)sFAIL%(end)s' + failreport
     return string
-
