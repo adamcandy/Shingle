@@ -95,8 +95,6 @@ An earlier version of the library Shingle 1.0 is available at: [https://github.c
 os.environ["CC"] = "gcc"
 os.environ["CXX"] = "g++"
 
-# sys.executable = '/usr/bin/env python'
-
 libspud = Extension('libspud',
             sources = [
                 'spud/python/libspud.c',
@@ -113,20 +111,6 @@ libspud = Extension('libspud',
             #extra_link_args=['-flat_namespace', '-lstdc++']
 )
 
-#libspud = Extension('libspud',
-#    sources = ['spud/python/libspud.c'],
-#    libraries=["spudcore"],
-#    library_dirs=[os.path.abspath("spud")],
-#    include_dirs=[os.path.abspath("spud/include")],
-#    extra_link_args=['-flat_namespace', '-lstdc++'],
-#)
-
-#setup(name = 'libspud',
-#       version = '1.1.3',
-#       description = 'Python bindings for libspud',
-#       ext_modules = [libspud]
-#)
-
 setup(name='shingle',
     version=version,
     description='Generation of boundary representation and mesh spatial discretisations from arbitrary geophysical fields.',
@@ -139,7 +123,6 @@ setup(name='shingle',
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        #'Development Status :: 3 - Alpha',
         'Development Status :: 4 - Beta',
 
         # Indicate who your project is intended for
