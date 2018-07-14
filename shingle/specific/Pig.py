@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-###########################################################################
+##############################################################################
 #
 #  Copyright (C) 2011-2018 Dr Adam S. Candy and others.
 #  
@@ -19,19 +19,19 @@
 #  of contributors.
 #  
 #  Shingle is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
+#  it under the terms of the GNU Lesser General Public License as published by
 #  the Free Software Foundation, either version 3 of the License, or
 #  (at your option) any later version.
 #  
 #  Shingle is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
+#  GNU Lesser General Public License for more details.
 #  
-#  You should have received a copy of the GNU General Public License
-#  along with Shingle.  If not, see <http://www.gnu.org/licenses/>.
+#  You should have received a copy of the GNU Lesser General Public License
+#  along with Shingle. If not, see <http://www.gnu.org/licenses/>.
 #
-###########################################################################
+##############################################################################
 
 def pig_sponge(index, indexa, indexb, a, b, dx):
 
@@ -175,3 +175,4 @@ def pig_sponge(index, indexa, indexb, a, b, dx):
     #gmsh_out('Line ( 1002 ) = { IPG + 7367, IPG + 7368 };')
     #gmsh_out('Line ( 1003 ) = { IPG + 7368, IPG + 722 };')
     #gmsh_out('Line Loop ( ILLG + 7 ) = { -1000, 1001, 1002, 1003 };')
+
