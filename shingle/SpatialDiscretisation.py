@@ -425,7 +425,7 @@ Created by:  Shingle %(version)s
     
 Version: %(version_full)s
 Mesh tool version: %(mesh_tool_version)s
-                   (on the system where the boundry representation has been created)
+                   (on the system where the boundary representation has been created)
 
 Project name: %(name)s
 Boundary Specification authors: %(author)s

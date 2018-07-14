@@ -78,6 +78,8 @@ class Execute(object):
             report('stdout: %(stdout)s', var={'stdout':self.stdout}, indent=1)
 
 def RepositoryVersion(full=False, parenthesis=False, not_available_note=True):
+    #from Version import version
+    import Version
     shingle_path = os.path.realpath(os.path.join(os.path.realpath(os.path.dirname(os.path.realpath(__file__))), os.path.pardir))
     if full:
         suffix = []
@@ -87,7 +89,8 @@ def RepositoryVersion(full=False, parenthesis=False, not_available_note=True):
     version = describe.stdout.strip()
     if describe.returncode != 0 or len(version) == 0:
         if not_available_note:
-            version = '[Not available]'
+            version = Version.version
+            #version = '[Not available]'
         else:
             version = ''
     if len(version) > 0 and parenthesis:
